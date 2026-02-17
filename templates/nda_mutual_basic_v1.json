@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "id": "nda_mutual_basic_v1",
+    "title": "NDA — Mutual (Basic)",
+    "kind": "document",
+    "category": "legal",
+    "version": "1.0.0",
+    "access": { "toolbox": true, "vault": true, "vaultSku": "onyou-nda-mutual-basic" },
+    "tags": ["nda", "legal", "contract"]
+  },
+  "brand": { "allowLogo": true, "allowAccent": true, "defaults": { "accent": "#2563eb" } },
+  "model": {
+    "fields": [
+      { "id": "disclosingParty", "type": "text", "label": "Disclosing party", "required": true, "group": "Parties" },
+      { "id": "receivingParty", "type": "text", "label": "Receiving party", "required": true, "group": "Parties" },
+      { "id": "effectiveDate", "type": "date", "label": "Effective date", "required": false, "group": "Agreement" },
+      { "id": "termYears", "type": "number", "label": "Term (years)", "required": false, "defaultValue": 2, "group": "Agreement" },
+      { "id": "governingLaw", "type": "text", "label": "Governing law (state/country)", "required": false, "group": "Agreement" }
+    ],
+    "collections": []
+  },
+  "layout": {
+    "pages": [
+      {
+        "id": "p1",
+        "blocks": [
+          { "type": "heading", "text": "Mutual Non-Disclosure Agreement" },
+          { "type": "paragraph", "text": "This Agreement is entered into between {{disclosingParty}} and {{receivingParty}} effective {{effectiveDate}}." },
+          { "type": "headingSmall", "text": "1. Purpose" },
+          { "type": "paragraph", "text": "The parties wish to explore a potential business relationship and may exchange confidential information." },
+          { "type": "headingSmall", "text": "2. Confidential Information" },
+          { "type": "paragraph", "text": "Confidential Information includes non-public business, technical, financial, or customer information disclosed by either party." },
+          { "type": "headingSmall", "text": "3. Obligations" },
+          {
+            "type": "list",
+            "items": [
+              "Use Confidential Information only for the Purpose.",
+              "Protect it using reasonable care.",
+              "Do not disclose it except to authorized representatives."
+            ]
+          },
+          { "type": "block", "id": "termBlock", "subtype": "paragraph", "text": "This Agreement remains in effect for {{termYears}} years unless terminated earlier in writing." },
+          { "type": "paragraph", "text": "Governing law: {{governingLaw}}." },
+          {
+            "type": "signatureRow",
+            "items": [
+              { "label": "Disclosing Party Signature", "value": "{{disclosingParty}}" },
+              { "label": "Receiving Party Signature", "value": "{{receivingParty}}" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logic": {
+    "rules": [
+      { "id": "hideTermIfEmpty", "when": { "field": "termYears", "op": "isEmpty" }, "then": { "hideBlocks": ["termBlock"] } }
+    ]
+  }
+}
