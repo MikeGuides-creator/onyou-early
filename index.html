@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OnYou Form Builder</title>
+
+  <!-- Fonts (optional: swap to your self-hosted Inter/Poppins later) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/onyou.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">OY</div>
+      <div class="brand-text">
+        <div class="brand-name">OnYou Form Builder</div>
+        <div class="brand-sub">Build the form you need — powered by AI</div>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="btnLibrary" class="btn btn-ghost">Library</button>
+      <button id="btnNew" class="btn btn-ghost">New</button>
+      <button id="btnPrint" class="btn">Print / PDF</button>
+      <div class="divider-v"></div>
+      <button id="btnExportTxt" class="btn btn-ghost">Export .txt</button>
+      <button id="btnExportMd" class="btn btn-ghost">Export .md</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="panel panel-left">
+      <div class="panel-head">
+        <div class="panel-title">
+          <h1 id="docTitle">Template</h1>
+          <p id="docMeta" class="muted">Pick a template or generate one with AI.</p>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <div class="ai-box">
+          <div class="ai-head">
+            <div>
+              <div class="ai-title">AI Generator</div>
+              <div class="ai-sub muted">Describe what you need. We’ll generate a template you can edit.</div>
+            </div>
+            <button id="btnGenerateAI" class="btn btn-accent">Generate</button>
+          </div>
+          <textarea id="aiPrompt" class="textarea" rows="3"
+            placeholder="Example: Create a 2-page employment application for a small HVAC company. Include availability, work history, references, and an authorization signature."></textarea>
+          <div id="aiStatus" class="ai-status muted"></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="library-inline" id="libraryInline"></div>
+
+        <div class="hr"></div>
+
+        <div id="builder" class="builder"></div>
+      </div>
+    </section>
+
+    <section class="panel panel-right">
+      <div class="panel-head">
+        <div class="panel-title">
+          <h2>Preview</h2>
+          <p class="muted">Print-ready layout. This is what exports.</p>
+        </div>
+      </div>
+
+      <div class="panel-body preview-wrap">
+        <div id="preview" class="preview"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Print-only container -->
+  <div id="printRoot" class="print-root" aria-hidden="true"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
