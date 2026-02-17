@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "id": "resume_modern_v1",
+    "title": "Resume — Modern",
+    "kind": "resume",
+    "category": "career",
+    "version": "1.0.0",
+    "access": { "toolbox": true, "vault": true, "vaultSku": "onyou-resume-modern" },
+    "tags": ["resume", "career", "job seeker"]
+  },
+  "brand": { "allowLogo": true, "allowAccent": true, "defaults": { "accent": "#2563eb" } },
+  "model": {
+    "fields": [
+      { "id": "fullName", "type": "text", "label": "Full name", "required": true, "group": "Identity" },
+      { "id": "headline", "type": "text", "label": "Headline", "required": false, "group": "Identity" },
+      { "id": "email", "type": "email", "label": "Email", "required": false, "group": "Contact" },
+      { "id": "phone", "type": "text", "label": "Phone", "required": false, "group": "Contact" },
+      { "id": "location", "type": "text", "label": "Location", "required": false, "group": "Contact" },
+      { "id": "summary", "type": "textarea", "label": "Professional summary", "required": false, "group": "Summary" }
+    ],
+    "collections": [
+      {
+        "id": "work",
+        "label": "Work Experience",
+        "min": 1,
+        "max": 6,
+        "itemFields": [
+          { "id": "employer", "type": "text", "label": "Employer", "required": true },
+          { "id": "title", "type": "text", "label": "Title", "required": true },
+          { "id": "start", "type": "text", "label": "Start (MM/YYYY)", "required": false },
+          { "id": "end", "type": "text", "label": "End (or Present)", "required": false },
+          { "id": "highlights", "type": "textarea", "label": "Highlights (bullets or short paragraph)", "required": false }
+        ]
+      }
+    ]
+  },
+  "layout": {
+    "pages": [
+      {
+        "id": "p1",
+        "blocks": [
+          { "type": "heading", "text": "{{fullName}}" },
+          { "type": "paragraph", "text": "{{headline}}" },
+          {
+            "type": "kv",
+            "items": [
+              { "k": "Email", "v": "{{email}}" },
+              { "k": "Phone", "v": "{{phone}}" },
+              { "k": "Location", "v": "{{location}}" }
+            ]
+          },
+          { "type": "headingSmall", "text": "Summary" },
+          { "type": "paragraph", "text": "{{summary}}" },
+          { "type": "headingSmall", "text": "Work Experience" },
+          { "type": "collection", "collectionId": "work" }
+        ]
+      }
+    ]
+  },
+  "logic": { "rules": [] }
+}
