@@ -3,85 +3,283 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OnYou Form Builder</title>
+  <title>MikeGuides Dev Group</title>
+  <meta name="description" content="Lean, operator-focused software tools built with discipline. Practical engines that power real work." />
 
-  <!-- Fonts (optional: swap to your self-hosted Inter/Poppins later) -->
+  <!-- Optional: swap to your self-hosted Inter/Poppins later -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/onyou.css" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark">OY</div>
-      <div class="brand-text">
-        <div class="brand-name">OnYou Form Builder</div>
-        <div class="brand-sub">Build the form you need — powered by AI</div>
-      </div>
-    </div>
+    <a class="brand" href="/" aria-label="MikeGuides Dev Group Home">
+      <span class="mark" aria-hidden="true">MG</span>
+      <span class="brandText">
+        <span class="brandName">MikeGuides Dev Group</span>
+        <span class="brandSub">Practical software for real operators</span>
+      </span>
+    </a>
 
-    <div class="topbar-actions">
-      <button id="btnLibrary" class="btn btn-ghost">Library</button>
-      <button id="btnNew" class="btn btn-ghost">New</button>
-      <button id="btnPrint" class="btn">Print / PDF</button>
-      <div class="divider-v"></div>
-      <button id="btnExportTxt" class="btn btn-ghost">Export .txt</button>
-      <button id="btnExportMd" class="btn btn-ghost">Export .md</button>
-    </div>
+    <nav class="nav">
+      <a href="#products">Products</a>
+      <a href="#how">How We Build</a>
+      <a href="#access">Vault & Toolbox</a>
+      <a href="/about/" class="navGhost">Meet the Founder</a>
+      <a href="/products/" class="navCta">Explore Tools</a>
+    </nav>
+
+    <button class="navToggle" id="navToggle" aria-label="Open menu">☰</button>
   </header>
 
-  <main class="shell">
-    <section class="panel panel-left">
-      <div class="panel-head">
-        <div class="panel-title">
-          <h1 id="docTitle">Template</h1>
-          <p id="docMeta" class="muted">Pick a template or generate one with AI.</p>
-        </div>
-      </div>
+  <div class="mobileNav" id="mobileNav" hidden>
+    <a href="#products">Products</a>
+    <a href="#how">How We Build</a>
+    <a href="#access">Vault & Toolbox</a>
+    <a href="/about/">Meet the Founder</a>
+    <a href="/products/" class="btnInline">Explore Tools</a>
+  </div>
 
-      <div class="panel-body">
-        <div class="ai-box">
-          <div class="ai-head">
-            <div>
-              <div class="ai-title">AI Generator</div>
-              <div class="ai-sub muted">Describe what you need. We’ll generate a template you can edit.</div>
-            </div>
-            <button id="btnGenerateAI" class="btn btn-accent">Generate</button>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroInner">
+        <div class="heroCopy">
+          <div class="kicker">Lean • Operator-focused • Built to last</div>
+          <h1>Practical software for real operators.</h1>
+          <p class="sub">
+            We build rock-solid tools and engines that simplify real work — hiring, planning, paperwork, and operations.
+          </p>
+
+          <div class="philosophyLine">
+            <strong>We build the tools and engines.</strong>
+            <span>Your success depends on how you use them — and we stand behind what we build.</span>
           </div>
-          <textarea id="aiPrompt" class="textarea" rows="3"
-            placeholder="Example: Create a 2-page employment application for a small HVAC company. Include availability, work history, references, and an authorization signature."></textarea>
-          <div id="aiStatus" class="ai-status muted"></div>
+
+          <div class="ctaRow">
+            <a class="btnPrimary" href="/products/">Explore our tools</a>
+            <a class="btnGhost" href="#products">See flagship products</a>
+          </div>
+
+          <div class="trustRow">
+            <span class="pill">No hype. Just usefulness.</span>
+            <span class="pill">Built intentionally.</span>
+            <span class="pill">Continuous improvement.</span>
+          </div>
         </div>
 
-        <div class="hr"></div>
+        <div class="heroCard">
+          <div class="heroCardTop">
+            <div class="heroCardTitle">Flagship Focus</div>
+            <div class="heroCardMeta">What we’re building right now</div>
+          </div>
+          <div class="heroCardBody">
+            <div class="miniProduct">
+              <div class="miniTitle">OnYou Form Builder</div>
+              <div class="miniDesc">Professional forms & documents with a premium finish — built for everyday users.</div>
+              <div class="miniActions">
+                <a class="btnSmall" href="/products/onyou/">Product page</a>
+                <a class="btnSmallGhost" href="/products/onyou/app/">Try the app</a>
+              </div>
+            </div>
 
-        <div class="library-inline" id="libraryInline"></div>
+            <div class="miniProduct">
+              <div class="miniTitle">Business Plan Generator (BPG)</div>
+              <div class="miniDesc">Structured planning engine that turns clarity into action.</div>
+              <div class="miniActions">
+                <a class="btnSmall" href="/products/bpg/">Product page</a>
+              </div>
+            </div>
 
-        <div class="hr"></div>
-
-        <div id="builder" class="builder"></div>
+            <div class="note">
+              <strong>Principle:</strong> We don’t ship until it’s reliable, clear, and genuinely useful.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="panel panel-right">
-      <div class="panel-head">
-        <div class="panel-title">
-          <h2>Preview</h2>
-          <p class="muted">Print-ready layout. This is what exports.</p>
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+      <div class="sectionHead">
+        <h2>Flagship products</h2>
+        <p>Each product is built to be simple on the surface, powerful underneath.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="cardTop">
+            <div class="cardTitle">OnYou Form Builder</div>
+            <div class="tagRow">
+              <span class="tag">Forms</span>
+              <span class="tag">Documents</span>
+              <span class="tag">AI-assisted</span>
+            </div>
+          </div>
+          <p class="cardBody">
+            Build professional employment applications, resumes, NDAs, intake forms, and more — with templates that prioritize usability.
+          </p>
+          <div class="cardActions">
+            <a class="btnPrimary" href="/products/onyou/">View OnYou</a>
+            <a class="btnGhost" href="/products/onyou/app/">Try the app</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="cardTop">
+            <div class="cardTitle">Business Plan Generator</div>
+            <div class="tagRow">
+              <span class="tag">Planning</span>
+              <span class="tag">Clarity</span>
+              <span class="tag">Execution</span>
+            </div>
+          </div>
+          <p class="cardBody">
+            A structured engine to build a real plan you can act on — without the usual noise and fluff.
+          </p>
+          <div class="cardActions">
+            <a class="btnPrimary" href="/products/bpg/">View BPG</a>
+          </div>
+        </article>
+
+        <article class="card cardMuted">
+          <div class="cardTop">
+            <div class="cardTitle">More tools are coming</div>
+            <div class="tagRow">
+              <span class="tag">Vault</span>
+              <span class="tag">Toolbox</span>
+              <span class="tag">Operators</span>
+            </div>
+          </div>
+          <p class="cardBody">
+            We’re building a library of high-utility tools. Each one earns its place by being dependable and genuinely helpful.
+          </p>
+          <div class="cardActions">
+            <a class="btnGhost" href="/products/">Browse all tools</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOW WE BUILD -->
+    <section class="section" id="how">
+      <div class="sectionHead">
+        <h2>How we build</h2>
+        <p>Confidence comes from process — not promises.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="feature">
+          <div class="featureTitle">Simplicity</div>
+          <div class="featureBody">Clear UI, obvious next steps, and sensible defaults. Built for non-technical users.</div>
+        </div>
+        <div class="feature">
+          <div class="featureTitle">Reliability</div>
+          <div class="featureBody">Autosave, validation, defensive design. No surprises. No lost work.</div>
+        </div>
+        <div class="feature">
+          <div class="featureTitle">Depth & adaptability</div>
+          <div class="featureBody">Power underneath the surface: templates, logic, exports, and continuous upgrades.</div>
         </div>
       </div>
 
-      <div class="panel-body preview-wrap">
-        <div id="preview" class="preview"></div>
+      <div class="callout">
+        <div class="calloutTitle">Continuous improvement, intentionally.</div>
+        <div class="calloutBody">
+          We ship in stable layers. Quality first. No hype features. Every release improves clarity, usefulness, or reliability.
+        </div>
       </div>
     </section>
+
+    <!-- ACCESS MODEL -->
+    <section class="section" id="access">
+      <div class="sectionHead">
+        <h2>Vault & Toolbox</h2>
+        <p>Choose how you want access — one-time purchase or subscription.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="cardTop">
+            <div class="cardTitle">Vault</div>
+            <div class="tagRow"><span class="tag">One-time purchase</span></div>
+          </div>
+          <ul class="list">
+            <li>Buy the exact tool you need</li>
+            <li>Keep it forever</li>
+            <li>Great for single-use or specific workflows</li>
+          </ul>
+          <div class="cardActions">
+            <a class="btnPrimary" href="/products/">Browse Vault tools</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardTop">
+            <div class="cardTitle">Toolbox</div>
+            <div class="tagRow"><span class="tag">Subscription</span></div>
+          </div>
+          <ul class="list">
+            <li>Access all included tools</li>
+            <li>Ongoing upgrades and new templates</li>
+            <li>Best for operators who need multiple engines</li>
+          </ul>
+          <div class="cardActions">
+            <a class="btnGhost" href="/products/#toolbox">See what’s included</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="fine">
+        Payments are handled through Gumroad. We keep access simple and transparent.
+      </p>
+    </section>
+
+    <!-- FOUNDER TEASER -->
+    <section class="section">
+      <div class="founder">
+        <div>
+          <h2>We stand behind what we build.</h2>
+          <p class="sub">
+            Dev Group exists to create useful tools for real people — teachers, job seekers, and small business operators.
+            Built with discipline, ethics, and patience.
+          </p>
+          <div class="ctaRow">
+            <a class="btnPrimary" href="/about/">Meet the founder</a>
+            <a class="btnGhost" href="/products/">Explore products</a>
+          </div>
+        </div>
+        <div class="founderCard">
+          <div class="founderCardTitle">Company posture</div>
+          <div class="bullets">
+            <div class="bullet"><span class="dot"></span><span>Lean by design</span></div>
+            <div class="bullet"><span class="dot"></span><span>Operator-first UX</span></div>
+            <div class="bullet"><span class="dot"></span><span>Quality over speed</span></div>
+            <div class="bullet"><span class="dot"></span><span>Built to be passed down</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerInner">
+        <div class="footerLeft">
+          <div class="footerBrand">MikeGuides Dev Group</div>
+          <div class="footerSub">Practical software for real operators.</div>
+        </div>
+        <div class="footerLinks">
+          <a href="/products/">Products</a>
+          <a href="/about/">Meet the Founder</a>
+          <a href="/legal/privacy.html">Privacy</a>
+          <a href="/legal/terms.html">Terms</a>
+        </div>
+      </div>
+      <div class="footerFine">© <span id="year"></span> MikeGuides Dev Group. All rights reserved.</div>
+    </footer>
   </main>
 
-  <!-- Print-only container -->
-  <div id="printRoot" class="print-root" aria-hidden="true"></div>
-
-  <script type="module" src="js/app.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
